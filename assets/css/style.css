@@ -1,0 +1,34 @@
+* {
+    background-color: grey;
+}
+
+#homepage {
+    margin-top: 8%;
+    text-align: center;
+}
+#time {
+    text-align: right;
+    color: white;
+}
+#code {
+    font-size: 50px;
+    color: white;
+}
+
+#startquizbtn {
+    text-align: center;
+    cursor: pointer;
+    font-size: 30px;
+    margin: 20px;
+    background-color: aqua;
+    border-radius: 15px;
+    border: none;
+}
+
+#homepage p {
+    font-size: 25px;
+    color: white;
+    margin-top: 40px ;
+    margin-left: 15%;
+    margin-right: 15%;
+}
