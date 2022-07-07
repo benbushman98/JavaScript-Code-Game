@@ -92,3 +92,45 @@ button {
     font-size: 15px;
 }
 /* End of Second Card */
+
+/* Start of Third Card */
+#thirdcard {
+    display: none;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+.container3 {
+    margin-top: 20px;
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: white;
+    border-radius: 20px;
+    font-size: 15px;
+}
+/* End of third Card */
+
+/* Start of fourth Card */
+#fourthcard {
+    display: none;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+.container4 {
+    margin-top: 20px;
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: white;
+    border-radius: 20px;
+    font-size: 15px;
+}
+/* End of fourth Card */
