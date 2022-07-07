@@ -4,7 +4,11 @@ var homepage = document.querySelector("#homepage");
 var body = document.querySelector("*")
 
 var firstcard = document.querySelector("#firstcard");
-var secondcard = document.querySelector("#secondcard")
+var secondcard = document.querySelector("#secondcard");
+var thirdcard = document.querySelector("#thirdcard");
+var fourthcard = document.querySelector("#fourthcard");
+var fifthcard = document.querySelector("#fifthcard");
+var highscores = document.querySelector("#highscore");
 
 var rorw = document.getElementById("rorw")
 
@@ -27,6 +31,11 @@ var answer1Btn4 = document.querySelector(".answer1btn4");
 var answer2Btn4 = document.querySelector(".answer2btn4");
 var answer3Btn4 = document.querySelector(".answer3btn4");
 var answer4Btn4 = document.querySelector(".answer4btn4");
+
+var answer1Btn5 = document.querySelector(".answer1btn5");
+var answer2Btn5 = document.querySelector(".answer2btn5");
+var answer3Btn5 = document.querySelector(".answer3btn5");
+var answer4Btn5 = document.querySelector(".answer4btn5");
 // End Global Variable
 
 // Code for Timer
@@ -47,7 +56,6 @@ function setTimer() {
     }, 1000);
 }
 function youLose() {
-    timer.textContent = " ";
     alert("You lose!")
 }
 // End code for Timer
@@ -226,7 +234,53 @@ if (answer4Btn4 = "Locate a specific ID in the HTML") {
 }
 }
 }
+// End for answer 4
+
 
 function chooseAnswer5() {
-    console.log ("TEST for 5")
+fourthcard.setAttribute("style", "display:none")
+fifthcard.setAttribute("style", "display:inline-block")
+    
+answer1Btn5.addEventListener("click", myFunction1)
+answer2Btn5.addEventListener("click", myFunction2)
+answer3Btn5.addEventListener("click", myFunction3)
+answer4Btn5.addEventListener("click", myFunction4)
+    
+function myFunction1() {
+if (answer1Btn5 = "Locate a specific class in the HTML" ) {
+    rorw.textContent = "Correct!"
+    return highscorePage ();
+}
+}
+function myFunction2() {
+if (answer2Btn5 = "Modify the CSS") {
+    rorw.textContent = "Wrong!"
+    secondsLeft --;
+    return highscorePage ();
+}
+}
+function myFunction3() {
+if (answer3Btn5 = "To validate the click of a button") {
+    rorw.textContent = "Wrong!"
+    secondsLeft --;
+    return highscorePage ();
+}
+}
+    
+function myFunction4() {
+if (answer4Btn5 = "Locate a specific ID in the HTML") {
+    rorw.textContent = "Wrong!"
+    secondsLeft --;
+    return highscorePage ();
+}
+}
+}
+
+
+function highscorePage () {
+fifthcard.setAttribute("style", "display:none")
+highscores.setAttribute("style", "display:inline-block")
+rorw.setAttribute("Style", "display:none")
+body.setAttribute("Style", "background-color:white;")
+
 }
