@@ -1,9 +1,8 @@
 * {
-    background-color: grey;
+    background-color: gry;
 }
 #time {
     text-align: right;
-    color: white;
     width: 100%;
 }
 
@@ -15,7 +14,6 @@
 
 #code {
     font-size: 50px;
-    color: white;
 }
 
 #startquizbtn {
@@ -29,7 +27,6 @@
 
 p {
     font-size: 25px;
-    color: white;
     margin-top: 40px ;
     margin-left: 15%;
     margin-right: 15%;
@@ -66,7 +63,6 @@ button {
 #rorw {
     margin: 20px;
     font-size: 25px;
-    color: white;
     text-align: left;
 }
 
@@ -134,3 +130,92 @@ button {
     font-size: 15px;
 }
 /* End of fourth Card */
+
+/* Start of fifth Card */
+#fifthcard {
+    display: none;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+.container5 {
+    margin-top: 20px;
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: white;
+    border-radius: 20px;
+    font-size: 15px;
+}
+
+#highscore{
+    display: none;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    
+}
+#highscore h1 {
+    font-size: 50px;
+    text-align: center;
+    background-color:white;
+    text-decoration: underline;
+}
+#highscore p {
+    text-align: center;
+}
+#text {
+    margin: auto;
+    width: 50px;
+    border: 2px solid black;
+    text-align: center;
+}
+#submit {
+    margin: auto;
+    width: 90px;
+    justify-content: center;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    background-color: aqua;
+    border-radius: 15px;
+    border: none;
+}
+
+#highscore h2 {
+    background-color: white;
+    text-align: center;
+    margin-bottom: 5px;
+}
+#high {
+    margin-top: 100px;
+    text-decoration: underline;
+}
+#highscorelog {
+    text-align: center;
+    margin-bottom: 20px
+}
+#clearhigh {
+    margin: 0 auto;
+    cursor: pointer;
+    font-size: 20px;
+    width: 100px;
+    background-color: aqua;
+    border-radius: 15px;
+    border: none;
+    margin-bottom: 10px;
+}
+#restart {
+    margin: 0 auto;
+    cursor: pointer;
+    font-size: 20px;
+    width: 100px;
+    background-color: aqua;
+    border-radius: 15px;
+    border: none;
+}
+
+/* End of fifth Card */
