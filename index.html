@@ -7,18 +7,31 @@
         <title>JavaScript Code Game</title>
     </head>
     <body>
-        <!-- HomePage -->
-        <h1 id="time"></h1>
-        <section id="homepage">
-            <h1 id="code">JavaScript Code Game</h1>
-            <button id="startquizbtn">Start Quiz</button>
-            <p>Test your knowledge on JavaScript. Play through this interactive game to see how much you know about the scripting language. 
-                Once you hit the "Start Quiz Button" a timer will begin. With every question you answer incorrectly, time will be deducted from you.
-                Once you are finished, your remaining time will be your score. The player with the highest score is the WINNER! Have fun!
-            </p>
-        </section>
-        <!-- End HomePage -->
-        
+        <main>
+            <h1 id="time">Time</h1>
+
+            <!-- HomePage -->
+            <section id="homepage">
+                <h1 id="code">JavaScript Code Game</h1>
+                <button id="startquizbtn">Start Quiz</button>
+                <p>Test your knowledge on JavaScript. Play through this interactive game to see how much you know about the scripting language. 
+                    Once you hit the "Start Quiz Button" a timer will begin. With every question you answer incorrectly, time will be deducted from you.
+                    Once you are finished, your remaining time will be your score. The player with the highest score is the WINNER! Have fun!
+                </p>
+            </section>
+            <!-- End HomePage -->
+            
+            <section>
+                <div id="firstcard">
+                    <div class="container1">
+                        <p style="color: black; background-color: white; font-size: 40px;">What is the correct JavaScript syntax to change the content of the HTML element below?</p>
+                        <button class="answer1">#demo.innerHTML = "Hello World!";</button>
+                        <button class="answer2">document.getElement("p").innerHTML = "Hello World!";</button>
+                        <button class="answer3">document.getElementByName("p").innerHTML = "Hello World!";</button>
+                        <button class="answer4">document.getElementById("demo").innerHTML = "Hello World!";</button>
+                    </div>
+                </div>
+            </section>
 
 
 
@@ -27,6 +40,7 @@
 
 
 
-        <script src="./assets/js/script.js"></script>
+            <script src="./assets/js/script.js"></script>
+        </main>
     </body>
 </html>
