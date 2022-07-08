@@ -86,12 +86,15 @@
                 <div id="highscore">
                     <div class="container5">
                         <h1>Highscores</h1>
-                        <p>Congrats! Your score is: </p>
-                        <h2>Initials:</h2>
-                        <input id="text" type="text"> <input id="submit" type="submit">
+                        <p id="score"></p>
+                        <h2>Initials</h2>
+                        <form id="submitform">
+                            <input type="text" id="initials" name="initials"> 
+                            <button id="submitbtn">Submit</button>
+                        </form>
                         <h2 id="high">Highscores</h2>
-                            <div id="highscorelog">see</div>
-                            <button id="clearhigh"> Clear</button>
+                        <ul id="highscorelog"></ul>
+                            <button id="clearhigh">Clear HS</button>
                             <button id="restart">Restart</button>
                             
             </section>
@@ -103,6 +106,7 @@
 
 
             <div id="rorw"></div>
+            <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
             <script src="./assets/js/script.js"></script>
         </main>
     </body>
