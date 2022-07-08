@@ -38,6 +38,7 @@ var answer3Btn5 = document.querySelector(".answer3btn5");
 var answer4Btn5 = document.querySelector(".answer4btn5");
 // End Global Variable
 
+
 // Code for Timer
 var timer = document.getElementById("time");
 var secondsLeft = 60;
@@ -51,7 +52,7 @@ function setTimer() {
 
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
-            youLose();
+            alert("You lose.")
         }
     }, 1000);
 }
@@ -60,20 +61,20 @@ function youLose() {
 }
 // End code for Timer
 
-// Function for showing next screen
-startQuizBtn.addEventListener("click", questionOne)
 
-
-function questionOne() {
-    homepage.setAttribute("style", "display:none")
-    chooseAnswer1 ();
+// First page
+init ();
+function init () {
+    highscores.setAttribute("style", "display:none");
+    homepage.setAttribute("style", "display:inline-block")
+    startQuizBtn.addEventListener("click", chooseAnswer1)
 }
-
-// End of showing next screen
+// End of First Page
 
 
 // Start of function chooseAnswer1
 function chooseAnswer1() {
+homepage.setAttribute("style", "display:none")
 firstcard.setAttribute("style", "display:inline-block")
 
 answer1Btn1.addEventListener("click", myfunction1)
@@ -278,9 +279,41 @@ if (answer4Btn5 = "Locate a specific ID in the HTML") {
 
 
 function highscorePage () {
-fifthcard.setAttribute("style", "display:none")
-highscores.setAttribute("style", "display:inline-block")
-rorw.setAttribute("Style", "display:none")
-body.setAttribute("Style", "background-color:white;")
+fifthcard.setAttribute("style", "display:none");
+highscores.setAttribute("style", "display:inline-block");
+rorw.setAttribute("Style", "display:none");
+    scoreInput ();
+        function scoreInput() {
+            var score = document.getElementById("score");
+            score.textContent = "Your final score is " + secondsLeft + "!";
+        }
+var restart = document.getElementById("restart");
+restart.addEventListener("click", loop);
+
+var submit = document.getElementById("submit");
+submit = document.addEventListener("click", function () {
+    secondsLeft
+})
+}
+
+function loop() {
+return init();
+}
+
+
+var submitForm = $('#submitform');
+var highScoreLog = $('#highscorelog');
+function submitFormEvent (event) {
+    event.preventDefault();
+
+var initials = $('input[name="initials"]').val();
+
+if(!initials) {
+    console.log("Please input intitials");
+    return;
+}
+highScoreLog.append('<li>' + initials + "  |  " + secondsLeft + '</li>');
+$('input[name="initials"]').val('');
 
 }
+submitForm.on('submit', submitFormEvent);
