@@ -178,7 +178,9 @@ button {
     border: 2px solid black;
     text-align: center;
 }
-#submit {
+#submitbtn {
+    margin: auto;
+    width: 100px;
     margin-top: 10px;
     cursor: pointer;
     font-size: 20px;

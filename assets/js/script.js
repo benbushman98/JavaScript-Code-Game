@@ -42,11 +42,12 @@ var answer4Btn5 = document.querySelector(".answer4btn5");
 // Code for Timer
 var timer = document.getElementById("time");
 var secondsLeft = 60;
+var timerInterval;
 
 startQuizBtn.addEventListener("click", setTimer)
 
 function setTimer() {
-    var timerInterval = setInterval(function() {
+        timerInterval = setInterval(function() {
         secondsLeft--;
         timer.textContent = secondsLeft;
 
@@ -55,9 +56,6 @@ function setTimer() {
             alert("You lose.")
         }
     }, 1000);
-}
-function youLose() {
-    alert("You lose!")
 }
 // End code for Timer
 
@@ -85,14 +83,14 @@ answer4Btn1.addEventListener("click", myfunction4)
 function myfunction1() {
 if (answer1Btn1 = "Number" ) {
     rorw.textContent = "Wrong!"
-    secondsLeft --;
+    secondsLeft -= 10;
     return chooseAnswer2 ();
 }
 }
 function myfunction2() {
 if (answer2Btn1 = "String") {
     rorw.textContent = "Wrong!"
-    secondsLeft --;
+    secondsLeft -= 10;
     return chooseAnswer2 ();
 }
 }
@@ -106,7 +104,7 @@ if (answer3Btn1 = "Document") {
 function myfunction4() {
 if (answer4Btn1 = "Boolean") {
     rorw.textContent = "Wrong!"
-    secondsLeft --;
+    secondsLeft -= 10;
     return chooseAnswer2 (); 
  }
 }
@@ -133,14 +131,14 @@ if (answer1Btn2 = "JS" ) {
 function myFunction2() {
 if (answer2Btn2 = "JAVA") {
     rorw.textContent = "Wrong!"
-    secondsLeft --;
+    secondsLeft -= 10;
     return chooseAnswer3 ();
 }
 }
 function myFunction3() {
 if (answer3Btn2 = "JST") {
     rorw.textContent = "Wrong!"
-    secondsLeft --;
+    secondsLeft -= 10;
     return chooseAnswer3 ();
 }
 }
@@ -148,7 +146,7 @@ if (answer3Btn2 = "JST") {
 function myFunction4() {
 if (answer4Btn2 = "J") {
     rorw.textContent = "Wrong!"
-    secondsLeft --;
+    secondsLeft -= 10;
     return chooseAnswer3 ();
 }
 }
@@ -168,21 +166,21 @@ answer4Btn3.addEventListener("click", myFunction4)
 function myFunction1() {
 if (answer1Btn3 = "Locate a specific class in the HTML" ) {
     rorw.textContent = "Wrong!"
-    secondsLeft --;
+    secondsLeft -= 10;
     return chooseAnswer4 ();
 }
 }
 function myFunction2() {
 if (answer2Btn3 = "Modify the CSS") {
     rorw.textContent = "Wrong!"
-    secondsLeft --;
+    secondsLeft -= 10;
     return chooseAnswer4 ();
 }
 }
 function myFunction3() {
 if (answer3Btn3 = "To validate the click of a button") {
     rorw.textContent = "Wrong!"
-    secondsLeft --;
+    secondsLeft -= 10;
     return chooseAnswer4 ();
 }
 }
@@ -209,7 +207,7 @@ answer4Btn4.addEventListener("click", myFunction4)
 function myFunction1() {
 if (answer1Btn4 = "Locate a specific class in the HTML" ) {
     rorw.textContent = "Wrong!"
-    secondsLeft --;
+    secondsLeft -= 10;
     return chooseAnswer5 ();
 }
 }
@@ -222,7 +220,7 @@ if (answer2Btn4 = "Modify the CSS") {
 function myFunction3() {
 if (answer3Btn4 = "To validate the click of a button") {
     rorw.textContent = "Wrong!"
-    secondsLeft --;
+    secondsLeft -= 10;
     return chooseAnswer5 ();
 }
 }
@@ -230,7 +228,7 @@ if (answer3Btn4 = "To validate the click of a button") {
 function myFunction4() {
 if (answer4Btn4 = "Locate a specific ID in the HTML") {
     rorw.textContent = "Wrong!"
-    secondsLeft --;
+    secondsLeft -= 10;
     return chooseAnswer5 ();
 }
 }
@@ -256,14 +254,14 @@ if (answer1Btn5 = "Locate a specific class in the HTML" ) {
 function myFunction2() {
 if (answer2Btn5 = "Modify the CSS") {
     rorw.textContent = "Wrong!"
-    secondsLeft --;
+    secondsLeft -= 10;
     return highscorePage ();
 }
 }
 function myFunction3() {
 if (answer3Btn5 = "To validate the click of a button") {
     rorw.textContent = "Wrong!"
-    secondsLeft --;
+    secondsLeft -= 10;
     return highscorePage ();
 }
 }
@@ -271,7 +269,7 @@ if (answer3Btn5 = "To validate the click of a button") {
 function myFunction4() {
 if (answer4Btn5 = "Locate a specific ID in the HTML") {
     rorw.textContent = "Wrong!"
-    secondsLeft --;
+    secondsLeft -= 10;
     return highscorePage ();
 }
 }
@@ -282,13 +280,14 @@ function highscorePage () {
 fifthcard.setAttribute("style", "display:none");
 highscores.setAttribute("style", "display:inline-block");
 rorw.setAttribute("Style", "display:none");
+timer.setAttribute("Style", "display:none")
+clearInterval(timerInterval);
+
     scoreInput ();
         function scoreInput() {
             var score = document.getElementById("score");
             score.textContent = "Your final score is " + secondsLeft + "!";
         }
-var restart = document.getElementById("restart");
-restart.addEventListener("click", loop);
 
 var submit = document.getElementById("submit");
 submit = document.addEventListener("click", function () {
@@ -309,7 +308,7 @@ function submitFormEvent (event) {
 var initials = $('input[name="initials"]').val();
 
 if(!initials) {
-    console.log("Please input intitials");
+    alert("Please input intitials");
     return;
 }
 highScoreLog.append('<li>' + initials + "  |  " + secondsLeft + '</li>');
