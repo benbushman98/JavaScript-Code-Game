@@ -10,6 +10,7 @@
 #homepage {
     margin-top: 8%;
     text-align: center;
+    display: none;
 }
 
 #code {
@@ -167,22 +168,31 @@ button {
 #highscore p {
     text-align: center;
 }
-#text {
+#submitform {
+    display: flex;
+    flex-direction: column;
+}
+#initials {
     margin: auto;
     width: 50px;
     border: 2px solid black;
     text-align: center;
 }
 #submit {
-    margin: auto;
-    width: 90px;
-    justify-content: center;
     margin-top: 10px;
     cursor: pointer;
     font-size: 20px;
     background-color: aqua;
     border-radius: 15px;
     border: none;
+}
+
+ul{
+    padding-inline-end: 40px;
+}
+li {
+    list-style: none;
+    font-size: 25px;
 }
 
 #highscore h2 {
