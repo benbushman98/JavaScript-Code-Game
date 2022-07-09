@@ -9,6 +9,9 @@ var fourthcard = document.querySelector("#fourthcard");
 var fifthcard = document.querySelector("#fifthcard");
 var highscores = document.querySelector("#highscore");
 var rorw = document.getElementById("rorw");
+var submitForm = $('#submitform');
+var highScoreLog = $('#highscorelog');
+var submit = document.getElementById("submit");
 // End Global Variable
 
 // Code for Timer
@@ -21,9 +24,10 @@ function setTimer() {
         secondsLeft--;
         timer.textContent = "Time: " + secondsLeft;
 
-        if (secondsLeft === 0) {
+        if (secondsLeft <= 0) {
             clearInterval(timerInterval);
-            alert("You lose.")
+            highscorePage ()
+            
         }
     }, 1000);}
 // End code for Timer
@@ -267,77 +271,98 @@ if (answer4Btn5 = "Locate a specific ID in the HTML") {
 }
 // End Question 5
 
+
+
+
+
 // Setup page for highscore content
 function highscorePage () {
+firstcard.setAttribute("style", "display:none");
+secondcard.setAttribute("style", "display:none");
+thirdcard.setAttribute("style", "display:none");
+fourthcard.setAttribute("style", "display:none");
 fifthcard.setAttribute("style", "display:none");
 highscores.setAttribute("style", "display:inline-block");
 rorw.setAttribute("Style", "display:none");
 timer.setAttribute("Style", "display:none")
 clearInterval(timerInterval);
-scoringMethod ()
+scoreInput();
+}
 // End setup for highscore content
 
-function scoringMethod () {
-    var storedHighscores = JSON.parse(localStorage.getItem(highScoreLog.val()));
 
-    if (storedHighscores !== null) {
-        highScoreLog = storedHighscores;
-    }
-    scoreInput();
-    renderScore();
-    }
-}
+
+
 // Begin function for scoring
-scoreInput ();
 function scoreInput() {
-    var score = document.getElementById("score");
-    score.textContent = "Your final score is " + secondsLeft + "!";
+    if (secondsLeft < 0) {
+        secondsLeft = 0
     }
-    var submit = document.getElementById("submit");
-    submit = document.addEventListener("click", function () {
-        secondsLeft
-    })
-
+var score = document.getElementById("score");
+    score.textContent = "Your final score is " + secondsLeft + "!";
+    checkStoredHigh();
+}
 // End function for scoring
 
-// Begin Function Submitting Score
-var submitForm = $('#submitform');
-var highScoreLog = $('#highscorelog');
+var highScoreInput = [];
 
-var scoreList = [];
+// Check for locally stored highscores
+function checkStoredHigh () {
+    var storedHighScores = JSON.parse(localStorage.getItem("highScoreInput"));
 
-function renderScore (event) {
-    submitForm.on('submit', renderScore);
-    event.preventDefault();
-var initials = $('input[name="initials"]').val();
-if(!initials) {
-    alert("Please input intitials");
-    return;
-}
-highScoreLog.append('<li>' + initials + "  |  " + secondsLeft + '</li>');
-$('input[name="initials"]').val('');
-storeScore ();
-}
-
-
-function storeScore () {
-    localStorage.setItem("scoreList", JSON.stringify(highScoreLog.val(initials + "  |  " + secondsLeft)));
-    
-    submitForm.on("submit"), function (event) {
-        submitForm.on('submit', storeScore);
-        event.preventDefault();
-
-        var submitScoreText = initials.val();
-
-        if (submitScoreText === "") {
-            return;
-        }
-
-        renderScore.push(submitScoreText)
-        initials.val() = "";
+    if (storedHighScores !== null) {
+        highScoreInput = storedHighScores
     }
+}
+// End for locally highscores
+
+
+
+
+// Variables and Event Listener for Submit Button
+submit = document.addEventListener("submit", renderScore) 
+submit = document.addEventListener("submit", storeScore)
+// End of Variables and Event Listener for Submit Button
+
+
+
+
+// Begin Function Submitting Score
+function renderScore(event) {
+event.preventDefault();
+    var initials = $('input[name="initials"]').val();
+    if(!initials) {
+    alert("Please input initials");
+    return;
+    }
+    highScoreLog.append('<li>' + initials + "  |  " + secondsLeft + '</li>');
+    $('input[name="initials"]');
+}
+   
+// End for Submitting Score
+
+
+
+
+
+// Function for storing score in Local Storage
+function storeScore (event) {
+    event.preventDefault();
+
+    var initials = document.querySelector("#initials")
+
+    var highScoreInput = {
+        name: initials.value,
+        score: secondsLeft
+    };
 
     
-}
+    localStorage.setItem("highScoreInput", JSON.stringify(highScoreInput));
+    }
+// End for storing Score.
 
 
+// Code for Clear HS Button
+
+
+// End for Clear HS Button
