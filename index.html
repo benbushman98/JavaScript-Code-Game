@@ -87,15 +87,17 @@
                     <div class="container5">
                         <h1>Highscores</h1>
                         <p id="score"></p>
-                        <h2>Initials</h2>
                         <form id="submitform">
-                            <input type="text" name="initials" id="initials" /> 
+                            <h2>Initials</h2>
+                            <input type="text" name="initials" id="initials"/> 
                             <button id="submitbtn">Submit</button>
                         </form>
-                        <h2 id="high">Highscores</h2>
-                            <ul id="highscorelog"></ul>
-                                <button id="clearhigh">Clear HS</button>
-                                <button id="restart" onclick="location.reload();">Restart</button>
+                        <div id="highbox">
+                            <h2 id="high">Highscores</h2>
+                                <ul id="highscorelog" class="clearlist"></ul>
+                                    <button id="clearhigh">Clear HS</button>
+                                    <button id="restart" onclick="location.reload();">Restart</button>
+                        </div>
                     </div>
                 </div>
             </section>

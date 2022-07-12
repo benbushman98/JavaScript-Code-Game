@@ -12,6 +12,7 @@ var rorw = document.getElementById("rorw");
 var submitForm = $('#submitform');
 var highScoreLog = $('#highscorelog');
 var submit = document.getElementById("submit");
+var clearhs = document.getElementById("clearhigh");
 // End Global Variable
 
 // Code for Timer
@@ -27,11 +28,9 @@ function setTimer() {
         if (secondsLeft <= 0) {
             clearInterval(timerInterval);
             highscorePage ()
-            
         }
     }, 1000);}
 // End code for Timer
-
 
 // First Page Initialize
 init ();
@@ -41,7 +40,6 @@ function init () {
     startQuizBtn.addEventListener("click", chooseAnswer1);
 }
 // End of First Page Initialize
-
 
 // Begin Question 1
 function chooseAnswer1() {
@@ -271,10 +269,6 @@ if (answer4Btn5 = "Locate a specific ID in the HTML") {
 }
 // End Question 5
 
-
-
-
-
 // Setup page for highscore content
 function highscorePage () {
 firstcard.setAttribute("style", "display:none");
@@ -290,42 +284,27 @@ scoreInput();
 }
 // End setup for highscore content
 
-
-
-
 // Begin function for scoring
 function scoreInput() {
     if (secondsLeft < 0) {
-        secondsLeft = 0
-    }
+        secondsLeft = 0}
 var score = document.getElementById("score");
     score.textContent = "Your final score is " + secondsLeft + "!";
-    checkStoredHigh();
+    // checkStoredHigh();
 }
 // End function for scoring
 
-var highScoreInput = [];
-
 // Check for locally stored highscores
-function checkStoredHigh () {
-    var storedHighScores = JSON.parse(localStorage.getItem("highScoreInput"));
-
-    if (storedHighScores !== null) {
-        highScoreInput = storedHighScores
-    }
-}
+// function checkStoredHigh () {
+//     JSON.parse(localStorage.getItem("highScoreInput"));
+// }
 // End for locally highscores
-
-
-
 
 // Variables and Event Listener for Submit Button
 submit = document.addEventListener("submit", renderScore) 
 submit = document.addEventListener("submit", storeScore)
+clearhs.addEventListener("click", clear);
 // End of Variables and Event Listener for Submit Button
-
-
-
 
 // Begin Function Submitting Score
 function renderScore(event) {
@@ -333,36 +312,53 @@ event.preventDefault();
     var initials = $('input[name="initials"]').val();
     if(!initials) {
     alert("Please input initials");
-    return;
-    }
+    return;}
     highScoreLog.append('<li>' + initials + "  |  " + secondsLeft + '</li>');
-    $('input[name="initials"]');
+    var form = document.querySelector("form");
+    var high = document.getElementById("high")
+    var highbox = document.getElementById("highbox")
+    form.setAttribute("style", "display:none;")
+    high.setAttribute("style", "margin-top: 25px")
+    highbox.setAttribute("style", "display: inline-block;")
 }
-   
 // End for Submitting Score
 
-
-
+function displayPrevHigh(highscores) {
+    for (let index = 0; index < highscores.length; index++) {
+        
+    highScoreLog.append('<li>' + highscores[index].name + "  |  " + highscores[index].score + '</li>');
+    var form = document.querySelector("form");
+    var high = document.getElementById("high")
+    var highbox = document.getElementById("highbox")
+    form.setAttribute("style", "display:none;")
+    high.setAttribute("style", "margin-top: 25px")
+    highbox.setAttribute("style", "display: inline-block;")
+}
+}
 
 
 // Function for storing score in Local Storage
 function storeScore (event) {
     event.preventDefault();
-
+    var highscores = JSON.parse(window.localStorage.getItem("highscore")) || []
     var initials = document.querySelector("#initials")
-
+    
     var highScoreInput = {
         name: initials.value,
-        score: secondsLeft
-    };
+        score: secondsLeft};
+// console.log(highscores)
+        highscores.push(highScoreInput)
+    window.localStorage.setItem("highscore", JSON.stringify(highscores));
 
-    
-    localStorage.setItem("highScoreInput", JSON.stringify(highScoreInput));
+displayPrevHigh(highscores);
     }
 // End for storing Score.
 
-
 // Code for Clear HS Button
-
-
+var clearList = document.querySelector(".clearlist")
+function clear() {
+    clearList.setAttribute("style", "display: none;")
+    clearhs.setAttribute("style", "margin-top: 63px;")
+    localStorage.clear();
+}
 // End for Clear HS Button
