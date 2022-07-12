@@ -290,42 +290,20 @@ function scoreInput() {
         secondsLeft = 0}
 var score = document.getElementById("score");
     score.textContent = "Your final score is " + secondsLeft + "!";
-    // checkStoredHigh();
+
 }
 // End function for scoring
 
-// Check for locally stored highscores
-// function checkStoredHigh () {
-//     JSON.parse(localStorage.getItem("highScoreInput"));
-// }
-// End for locally highscores
+
 
 // Variables and Event Listener for Submit Button
-submit = document.addEventListener("submit", renderScore) 
 submit = document.addEventListener("submit", storeScore)
 clearhs.addEventListener("click", clear);
 // End of Variables and Event Listener for Submit Button
 
-// Begin Function Submitting Score
-function renderScore(event) {
-event.preventDefault();
-    var initials = $('input[name="initials"]').val();
-    if(!initials) {
-    alert("Please input initials");
-    return;}
-    highScoreLog.append('<li>' + initials + "  |  " + secondsLeft + '</li>');
-    var form = document.querySelector("form");
-    var high = document.getElementById("high")
-    var highbox = document.getElementById("highbox")
-    form.setAttribute("style", "display:none;")
-    high.setAttribute("style", "margin-top: 25px")
-    highbox.setAttribute("style", "display: inline-block;")
-}
-// End for Submitting Score
-
+// Renders sscore and calls from local storage
 function displayPrevHigh(highscores) {
     for (let index = 0; index < highscores.length; index++) {
-        
     highScoreLog.append('<li>' + highscores[index].name + "  |  " + highscores[index].score + '</li>');
     var form = document.querySelector("form");
     var high = document.getElementById("high")
@@ -335,6 +313,7 @@ function displayPrevHigh(highscores) {
     highbox.setAttribute("style", "display: inline-block;")
 }
 }
+// Renders sscore and calls from local storage
 
 
 // Function for storing score in Local Storage
@@ -346,13 +325,14 @@ function storeScore (event) {
     var highScoreInput = {
         name: initials.value,
         score: secondsLeft};
-// console.log(highscores)
         highscores.push(highScoreInput)
     window.localStorage.setItem("highscore", JSON.stringify(highscores));
 
 displayPrevHigh(highscores);
     }
 // End for storing Score.
+
+
 
 // Code for Clear HS Button
 var clearList = document.querySelector(".clearlist")
