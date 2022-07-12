@@ -5,7 +5,7 @@ Test out your knowledge of JavaScript with this interactive game. When you selec
 <br></br>
 
 ## Screenshot
-![Screenshot of what the webpage looks like](assets/img/Screenshot.JavaScript-Code-game1.gif)
+![Screenshot of what the webpage looks like](assets/img/Screenshot.JavaScript-Code-game2.gif)
 
 <br></br>
 
